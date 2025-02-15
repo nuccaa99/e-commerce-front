@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons-container {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+}
+.login-icon,
+.shopping_bag-icon {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+}
+.icons-container > a {
+  text-transform: uppercase;
+  color: var(--dark-color);
+  text-decoration: none;
+  font-size: 12px;
+}
+.icons-container > a > span {
+  padding-top: 3px;
+}

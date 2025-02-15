@@ -1,7 +1,13 @@
 :root {
   --font-primary: "Raleway", sans-serif;
+  --light-color: #f1f7ee;
+  --mint-color: #87c9ab;
+  --dark-color: #212738;
+  --accent-color: #c5979d;
 }
 
 * {
   font-family: var(--font-primary);
+  margin: 0px;
+  padding: 0px;
 }
