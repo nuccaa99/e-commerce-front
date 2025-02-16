@@ -1,0 +1,58 @@
+a {
+  color: var(--dark-color);
+}
+
+.footer-container {
+  padding: 10px;
+  background-color: var(--light-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 30px;
+}
+
+.discount-promo-msg {
+  padding: 8px;
+  border: 2px solid var(--dark-color);
+}
+
+.social-media-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-media-icons-wrapper {
+  display: flex;
+  column-gap: 15px;
+}
+
+.footer-links {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+
+.footer-links > section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links > section > p {
+  font-weight: bold;
+}
+.footer-links > section > a {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 400px) {
+  .footer-container {
+    row-gap: 10px;
+  }
+  .footer-links {
+    column-gap: 10px;
+  }
+}

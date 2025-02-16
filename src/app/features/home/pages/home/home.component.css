@@ -1,0 +1,19 @@
+.home-container {
+  height: 100vh;
+  background-image: url("src/assets/images/home-img.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-content-wrapper > a {
+  color: var(--light-color);
+  font-size: 50px;
+}
+
+p {
+  margin-bottom: 20px;
+}

@@ -2,6 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: transparent;
+  position: fixed;
+}
+
+a {
+  text-transform: uppercase;
+  color: var(--dark-color);
 }
 
 .icons-container {
@@ -16,11 +23,14 @@
   column-gap: 3px;
 }
 .icons-container > a {
-  text-transform: uppercase;
-  color: var(--dark-color);
-  text-decoration: none;
   font-size: 12px;
 }
 .icons-container > a > span {
   padding-top: 3px;
+}
+
+@media screen and (max-width: 400px) {
+  .icons-container {
+    column-gap: 10px;
+  }
 }

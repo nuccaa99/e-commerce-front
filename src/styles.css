@@ -6,8 +6,17 @@
   --accent-color: #c5979d;
 }
 
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
 * {
   font-family: var(--font-primary);
   margin: 0px;
   padding: 0px;
+}
+
+html::-webkit-scrollbar {
+  width: 0px;
 }
