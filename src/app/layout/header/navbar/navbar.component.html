@@ -1,13 +1,26 @@
 <mat-toolbar class="navbar">
   <a routerLink="/"> NORDIC NEST </a>
   <div class="icons-container">
-    <a routerLink="/auth/login" class="login-icon">
-      <mat-icon>person</mat-icon>
-      <span>log in</span>
-    </a>
-    <a routerLink="/cart" class="shopping_bag-icon">
-      <mat-icon>shopping_bag</mat-icon>
-      <span>Basket</span>
-    </a>
+    <ng-container *ngIf="isLoggedIn; else guestNav">
+      <div class="dropdown-wrapper">
+        <a routerLink="/profile" *ngIf="userName" (click)="toggleDropdown()"
+          >{{ userName }} ▼</a
+        >
+
+        <div class="dropdown" *ngIf="dropdownOpen">
+          <button (click)="logout()" class="logout-btn">Logout</button>
+        </div>
+      </div>
+      <a routerLink="/cart" class="shopping_bag-icon">
+        <mat-icon>shopping_bag</mat-icon>
+        <span>Basket</span>
+      </a>
+    </ng-container>
+    <ng-template #guestNav>
+      <a routerLink="/auth/login" class="login-icon">
+        <mat-icon>person</mat-icon>
+        <span>log in</span>
+      </a>
+    </ng-template>
   </div>
 </mat-toolbar>

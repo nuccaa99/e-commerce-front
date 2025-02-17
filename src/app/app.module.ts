@@ -12,10 +12,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
-import { LoginComponent } from './features/auth/pages/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, LoginComponent],
+  declarations: [AppComponent, NavbarComponent, FooterComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

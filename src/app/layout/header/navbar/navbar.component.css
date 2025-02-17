@@ -22,11 +22,28 @@ a {
   align-items: center;
   column-gap: 3px;
 }
-.icons-container > a {
+.icons-container > a,
+.dropdown-wrapper > a {
   font-size: 12px;
 }
+
 .icons-container > a > span {
   padding-top: 3px;
+}
+
+.dropdown {
+  position: fixed;
+}
+.logout-btn {
+  padding: 10px;
+  border: none;
+  background-color: rgba(197, 151, 157, 0.7);
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {

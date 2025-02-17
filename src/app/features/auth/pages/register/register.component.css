@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -9,7 +9,13 @@
 form {
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 5px;
+}
+
+.name-fields {
+  display: flex;
+
+  column-gap: 5px;
 }
 
 mat-card-title {
