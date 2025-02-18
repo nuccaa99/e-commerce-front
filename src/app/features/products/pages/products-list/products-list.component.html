@@ -1,1 +1,19 @@
-<p>products-list works!</p>
+<div class="products-list-container">
+  <!-- Loading state -->
+  <div *ngIf="!products.length" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Products grid -->
+  <div class="products-list-wrapper">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+      (addToCartClicked)="onAddToCart($event)"
+      (viewDetailsClicked)="onViewDetails($event)"
+    >
+    </app-product-card>
+  </div>
+</div>

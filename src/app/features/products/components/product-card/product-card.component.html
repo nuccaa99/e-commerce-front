@@ -1,0 +1,24 @@
+<div class="card">
+  <!-- Product image -->
+  <img
+    (click)="onViewDetails()"
+    [src]="product.imageData || 'assets/images/placeholder.svg'"
+    class="card-img"
+    [alt]="product.name"
+  />
+
+  <div class="card-body">
+    <!-- Product name -->
+    <div class="card-wrapper">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <button (click)="onAddToCart()" class="add-btn">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
+
+    <!-- Product price -->
+    <p class="card-text">
+      {{ product.price | currency }}
+    </p>
+  </div>
+</div>
