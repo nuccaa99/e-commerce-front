@@ -2,6 +2,11 @@
   min-height: 100vh;
   padding: 100px 80px;
   display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.basket-wrapper {
+  display: flex;
   flex-wrap: wrap;
   gap: 80px;
   justify-content: center;
@@ -17,7 +22,8 @@
   text-align: center;
 }
 
-.remove-from-basket {
+.remove-from-basket,
+.check-out-btn {
   background-color: transparent;
   padding: 10px 20px;
   border: 1px solid var(--dark-color);
@@ -28,4 +34,7 @@
   height: 100vh;
   padding: 100px;
   text-align: center;
+}
+.check-out-btn {
+  margin: auto 0;
 }

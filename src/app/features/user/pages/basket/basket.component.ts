@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Product } from 'src/app/core/models/product.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-basket',
@@ -15,12 +16,14 @@ export class BasketComponent implements OnInit {
   basketProducts: any[] = [];
   error: string | null = null;
   isLoading: boolean = false;
+  isCheckingOut: boolean = false;
 
   constructor(
     private authService: AuthService,
     private productService: ProductService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +53,38 @@ export class BasketComponent implements OnInit {
         this.error = 'Failed to remove item from basket';
         console.error('Error removing item:', err);
         this.isLoading = false;
+      },
+    });
+  }
+  checkout(): void {
+    if (this.isCheckingOut || this.basketProducts.length === 0) return;
+
+    this.isCheckingOut = true;
+    this.error = null;
+
+    this.cartService.checkout().subscribe({
+      next: (response) => {
+        this.snackBar.open('Order placed successfully!', 'Close', {
+          duration: 5000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['success-snackbar'],
+        });
+        this.basket = [];
+        this.basketProducts = [];
+      },
+      error: (err) => {
+        this.error =
+          typeof err === 'string' ? err : 'Failed to process checkout';
+        this.snackBar.open(this.error, 'Close', {
+          duration: 5000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['error-snackbar'],
+        });
+      },
+      complete: () => {
+        this.isCheckingOut = false;
       },
     });
   }

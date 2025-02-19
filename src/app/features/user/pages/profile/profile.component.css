@@ -1,12 +1,16 @@
 .profile-container {
-  padding: 100px 80px;
-  height: 100vh;
+  padding: 100px 20px;
+  min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   column-gap: 150px;
 }
 
 .profile-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .profile-list-item {

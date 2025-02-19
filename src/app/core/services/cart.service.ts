@@ -52,4 +52,11 @@ export class CartService {
 
     return throwError(() => errorMessage);
   }
+
+  checkout(): Observable<any> {
+    return this.http
+      .post(`${this.apiUrl}/checkout`, {})
+      .pipe(catchError(this.handleError));
+  }
+  
 }
