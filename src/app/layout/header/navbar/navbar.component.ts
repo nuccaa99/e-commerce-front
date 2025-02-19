@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +11,7 @@ export class NavbarComponent implements OnInit {
   userName!: string;
   dropdownOpen = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.authState$.subscribe((state) => {
@@ -24,19 +23,8 @@ export class NavbarComponent implements OnInit {
 
     if (this.authService.isCurrentlyAuthenticated()) {
       this.authService
-        .getCurrentUserName()
+        .getCurrentUser()
         .subscribe((user) => this.authService.updateUserName(user.firstName));
     }
-  }
-
-  toggleDropdown() {
-    this.dropdownOpen = !this.dropdownOpen;
-  }
-
-  logout() {
-    this.authService.logout();
-    this.userName = '';
-    this.dropdownOpen = false;
-    this.router.navigate(['/']);
   }
 }

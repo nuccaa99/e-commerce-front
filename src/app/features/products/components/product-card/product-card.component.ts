@@ -22,6 +22,7 @@ export class ProductCardComponent {
 
   onAddToCart(): void {
     if (this.authService.isCurrentlyAuthenticated()) {
+      console.log(this.product);
       this.addToCartClicked.emit(this.product);
     } else {
       this.snackBar.open('Please log in to add items to cart', 'Close', {

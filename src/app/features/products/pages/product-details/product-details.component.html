@@ -1,0 +1,24 @@
+<div class="product-details-container">
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+
+  <div class="product-details-img-wrapper" *ngIf="!isLoading">
+    <img
+      [src]="product?.imageData"
+      class="product-details-img"
+      [alt]="product?.name"
+    />
+  </div>
+  <div class="product-details-description-wrapper" *ngIf="!isLoading">
+    <p class="product-details-category">{{ product?.category }}</p>
+    <p class="product-details-name">{{ product?.name }}</p>
+    <p class="product-details-price">{{ product?.price | currency }}</p>
+    <p class="product-details-description">{{ product?.description }}</p>
+    <button
+      (click)="onAddToCart()"
+      [disabled]="isAddingToCart"
+      class="add-to-cart-btn"
+    >
+      {{ isAddingToCart ? "Adding..." : "Add to Cart" }}
+    </button>
+  </div>
+</div>

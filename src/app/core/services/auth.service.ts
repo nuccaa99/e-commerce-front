@@ -54,7 +54,7 @@ export class AuthService {
               'Strict'
             );
             this.authState.next(true);
-            this.getCurrentUserName().subscribe((user) =>
+            this.getCurrentUser().subscribe((user) =>
               this.updateUserName(user.firstName)
             );
           }
@@ -68,12 +68,8 @@ export class AuthService {
     this.updateUserName('');
   }
 
-  getCurrentUserName(): Observable<any> {
-    const token = this.cookieService.get('authToken');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
-    return this.http.get(`${this.apiUrl}/auth/current-user`, { headers });
+  getCurrentUser(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/auth/current-user`);
   }
 
   isCurrentlyAuthenticated(): boolean {
@@ -82,5 +78,12 @@ export class AuthService {
 
   private hasToken(): boolean {
     return this.cookieService.check('authToken');
+  }
+
+  getAuthHeaders(): HttpHeaders {
+    const token = this.cookieService.get('authToken');
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
   }
 }

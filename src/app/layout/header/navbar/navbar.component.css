@@ -31,21 +31,6 @@ a {
   padding-top: 3px;
 }
 
-.dropdown {
-  position: fixed;
-}
-.logout-btn {
-  padding: 10px;
-  border: none;
-  background-color: rgba(197, 151, 157, 0.7);
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.logout-btn:hover {
-  cursor: pointer;
-}
-
 @media screen and (max-width: 400px) {
   .icons-container {
     column-gap: 10px;

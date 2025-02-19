@@ -1,0 +1,31 @@
+.basket-container {
+  min-height: 100vh;
+  padding: 100px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+}
+.basket-item img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.loading-indicator {
+  padding: 80px;
+  text-align: center;
+}
+
+.remove-from-basket {
+  background-color: transparent;
+  padding: 10px 20px;
+  border: 1px solid var(--dark-color);
+  cursor: pointer;
+}
+
+.empty {
+  height: 100vh;
+  padding: 100px;
+  text-align: center;
+}

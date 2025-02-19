@@ -20,6 +20,11 @@ const routes: Routes = [
         (m) => m.ProductsModule
       ),
   },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./features/user/user.module').then((m) => m.UsersModule),
+  },
 
   { path: '**', redirectTo: '' },
 ];

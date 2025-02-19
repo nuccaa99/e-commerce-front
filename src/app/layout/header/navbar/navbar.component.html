@@ -3,15 +3,9 @@
   <div class="icons-container">
     <ng-container *ngIf="isLoggedIn; else guestNav">
       <div class="dropdown-wrapper">
-        <a routerLink="/profile" *ngIf="userName" (click)="toggleDropdown()"
-          >{{ userName }} ▼</a
-        >
-
-        <div class="dropdown" *ngIf="dropdownOpen">
-          <button (click)="logout()" class="logout-btn">Logout</button>
-        </div>
+        <a routerLink="/profile" *ngIf="userName">{{ userName }} </a>
       </div>
-      <a routerLink="/cart" class="shopping_bag-icon">
+      <a routerLink="/profile/basket" class="shopping_bag-icon">
         <mat-icon>shopping_bag</mat-icon>
         <span>Basket</span>
       </a>

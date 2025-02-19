@@ -1,0 +1,30 @@
+<div *ngIf="isLoading" class="loading-indicator">Loading products...</div>
+
+<div *ngIf="!isLoading && error" class="error">{{ error }}</div>
+
+<div
+  *ngIf="!isLoading && basketProducts.length > 0; else emptyBasket"
+  class="basket-container"
+>
+  <div *ngFor="let product of basketProducts" class="basket-item">
+    <img class="basket-img" [src]="product.imageData" [alt]="product.name" />
+    <div>
+      <h3>{{ product.name }}</h3>
+      <p>Price: {{ product.price | currency }}</p>
+      <p>Quantity: {{ product.quantity }}</p>
+      <button
+        class="remove-from-basket"
+        (click)="removeFromBasket(product._id, 1)"
+        [disabled]="isLoading"
+      >
+        Remove from basket
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyBasket>
+  <div *ngIf="!isLoading" class="empty">
+    <p>Your basket is empty.</p>
+  </div>
+</ng-template>

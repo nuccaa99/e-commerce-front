@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <ul class="profile-list">
+    <li class="profile-list-item">orders</li>
+    <li class="profile-list-item">
+      <button (click)="logout()">sign out</button>
+    </li>
+  </ul>
+
+  <!-- Orders section with empty state handling -->
+  <div *ngIf="orderHistory.length > 0; else noOrders">
+    <div *ngFor="let order of orderHistory">
+      <p>Date: {{ order.date | date }}</p>
+      <p>Total: {{ order.total | currency }}</p>
+      <ul class="order-list">
+        <li *ngFor="let item of order.items">
+          <p>{{ item.name }}</p>
+          <p>{{ item.price | currency }}</p>
+          <p>Quantity: {{ item.quantity }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- No orders template -->
+  <ng-template #noOrders>
+    <div class="no-orders-message">
+      <p>You have no orders yet</p>
+    </div>
+  </ng-template>
+</div>

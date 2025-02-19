@@ -1,0 +1,39 @@
+.profile-container {
+  padding: 100px 80px;
+  height: 100vh;
+  display: flex;
+  column-gap: 150px;
+}
+
+.profile-list {
+  list-style: none;
+}
+
+.profile-list-item {
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.profile-list-item:hover,
+.profile-list-item button:hover {
+  cursor: pointer;
+}
+.profile-list-item button {
+  text-transform: uppercase;
+  border: 1px solid var(--accent-color);
+  padding: 10px;
+  background-color: transparent;
+}
+
+.order-list {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.no-orders-message {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
