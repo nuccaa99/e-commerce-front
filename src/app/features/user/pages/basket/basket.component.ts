@@ -27,17 +27,28 @@ export class BasketComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.authService.getCurrentUser().subscribe({
       next: (user) => {
         this.basket = user.cart || [];
-        console.log(user);
+        console.log(this.basket, 'basket');
         this.loadProducts();
       },
       error: (err) => {
         this.error = 'Failed to load basket';
         console.error('Error loading basket:', err);
+        this.isLoading = false;
       },
     });
+  }
+
+  calculateTotal(): number {
+    return this.basketProducts.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }
+  get basketTotal(): number {
+    return this.calculateTotal();
   }
 
   removeFromBasket(productId: string, quantity: number = 1): void {

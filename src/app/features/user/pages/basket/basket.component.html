@@ -3,7 +3,7 @@
 <div *ngIf="!isLoading && error" class="error">{{ error }}</div>
 
 <div
-  *ngIf="!isLoading && basketProducts.length > 0; else emptyBasket"
+  *ngIf="!isLoading && basket.length > 0; else emptyBasket"
   class="basket-container"
 >
   <div class="basket-wrapper">
@@ -23,6 +23,7 @@
       </div>
     </div>
   </div>
+  <div class="total">Total: {{ basketTotal | currency }}</div>
   <button
     (click)="checkout()"
     class="check-out-btn"
@@ -32,7 +33,7 @@
   </button>
 </div>
 <ng-template #emptyBasket>
-  <div *ngIf="!isLoading" class="empty">
+  <div *ngIf="!isLoading && !error && basket.length === 0" class="empty">
     <p>Your basket is empty.</p>
   </div>
 </ng-template>
