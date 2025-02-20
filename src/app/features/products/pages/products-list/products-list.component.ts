@@ -35,8 +35,8 @@ export class ProductsListComponent implements OnInit {
 
       this.cartService.addToCart(product._id).subscribe({
         next: (response) => {
-          console.log('Product added to cart:', response);
-          this.snackBar.open('Product added to cart', 'Close', {
+          console.log('Product added to basket:', response);
+          this.snackBar.open('Product added to basket', 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
             verticalPosition: 'bottom',

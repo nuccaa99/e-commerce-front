@@ -67,7 +67,7 @@ export class ProductDetailsComponent implements OnInit {
     this.isAddingToCart = true;
     this.cartService.addToCart(this.product._id, this.quantity).subscribe({
       next: (response) => {
-        this.snackBar.open('Product added to cart', 'Close', {
+        this.snackBar.open('Product added to basket', 'Close', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',

@@ -10,7 +10,7 @@
   <div *ngIf="orderHistory.length > 0; else noOrders">
     <div *ngFor="let order of orderHistory">
       <p>Date: {{ order.date | date }}</p>
-      <p>Total: {{ order.total | currency }}</p>
+      <strong><p>Total: {{ order.total | currency }}</p></strong>
       <ul class="order-list">
         <li *ngFor="let item of order.items">
           <p>{{ item.name }}</p>

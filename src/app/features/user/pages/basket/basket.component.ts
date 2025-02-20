@@ -85,6 +85,7 @@ export class BasketComponent implements OnInit {
       },
       complete: () => {
         this.isCheckingOut = false;
+        this.router.navigate(['/']);
       },
     });
   }
