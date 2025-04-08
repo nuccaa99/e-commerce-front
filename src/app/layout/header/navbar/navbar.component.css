@@ -11,6 +11,25 @@ a {
   color: var(--dark-color);
 }
 
+.icon-badge-container {
+  position: relative;
+  display: flex;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  min-width: 18px;
+  height: 18px;
+  line-height: 16px;
+  text-align: center;
+}
+
 .icons-container {
   display: flex;
   column-gap: 30px;

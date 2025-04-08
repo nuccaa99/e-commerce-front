@@ -13,6 +13,7 @@ export class AuthService {
 
   private authState = new BehaviorSubject<boolean>(this.hasToken());
   private userNameState = new BehaviorSubject<string>('');
+
   authState$ = this.authState.asObservable();
   userNameState$ = this.userNameState.asObservable();
 

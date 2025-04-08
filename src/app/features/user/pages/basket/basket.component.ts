@@ -31,7 +31,6 @@ export class BasketComponent implements OnInit {
     this.authService.getCurrentUser().subscribe({
       next: (user) => {
         this.basket = user.cart || [];
-        console.log(this.basket, 'basket');
         this.loadProducts();
       },
       error: (err) => {

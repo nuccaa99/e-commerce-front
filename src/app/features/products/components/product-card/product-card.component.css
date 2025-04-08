@@ -30,8 +30,15 @@ h5 {
   justify-content: space-between;
 }
 
+mat-icon {
+  transition: all 1s linear;
+}
 mat-icon:hover {
   cursor: pointer;
+}
+
+mat-icon:focus {
+  transform: scale(0.5);
 }
 
 .add-btn {

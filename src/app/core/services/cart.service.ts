@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,7 +10,14 @@ import { environment } from 'src/environments/environment';
 export class CartService {
   private apiUrl = `${environment.apiUrl}/users`;
 
+  private cartChangedSubject = new BehaviorSubject<boolean>(false);
+  cartChanged$ = this.cartChangedSubject.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  notifyCartChanged(): void {
+    this.cartChangedSubject.next(true);
+  }
 
   addToCart(id: string, q: number = 1): Observable<any[]> {
     return this.http
@@ -18,7 +25,12 @@ export class CartService {
         productId: id,
         quantity: q,
       })
-      .pipe(catchError(this.handleError));
+      .pipe(
+        tap(() => {
+          this.notifyCartChanged();
+        }),
+        catchError(this.handleError)
+      );
   }
 
   removeFromCart(productId: string, quantity: number = 1): Observable<any> {
@@ -27,7 +39,12 @@ export class CartService {
         productId,
         quantity,
       })
-      .pipe(catchError(this.handleError));
+      .pipe(
+        tap(() => {
+          this.notifyCartChanged();
+        }),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -54,9 +71,11 @@ export class CartService {
   }
 
   checkout(): Observable<any> {
-    return this.http
-      .post(`${this.apiUrl}/checkout`, {})
-      .pipe(catchError(this.handleError));
+    return this.http.post(`${this.apiUrl}/checkout`, {}).pipe(
+      tap(() => {
+        this.notifyCartChanged();
+      }),
+      catchError(this.handleError)
+    );
   }
-  
 }

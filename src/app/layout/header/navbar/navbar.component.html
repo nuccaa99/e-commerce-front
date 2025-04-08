@@ -6,7 +6,10 @@
         <a routerLink="/profile" *ngIf="userName">{{ userName }} </a>
       </div>
       <a routerLink="/profile/basket" class="shopping_bag-icon">
-        <mat-icon>shopping_bag</mat-icon>
+        <div class="icon-badge-container">
+          <mat-icon>shopping_bag</mat-icon>
+          <span class="badge" *ngIf="basketQuantity > 0">{{ basketQuantity }}</span>
+        </div>
         <span>Basket</span>
       </a>
     </ng-container>
