@@ -2,7 +2,9 @@
   <!-- Loading state -->
   <div *ngIf="!products.length" class="text-center">
     <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
+      <span class="visually-hidden">
+        <mat-spinner diameter="30"></mat-spinner>
+      </span>
     </div>
   </div>
 

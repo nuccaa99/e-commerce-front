@@ -14,7 +14,6 @@ form {
 
 .name-fields {
   display: flex;
-
   column-gap: 5px;
 }
 
@@ -36,4 +35,18 @@ mat-card-title {
 }
 .custom-login-btn {
   background-color: var(--dark-color);
+}
+
+@media screen and (max-width: 600px) {
+  .register-container {
+    padding: 20px;
+  }
+
+  .name-fields {
+    flex-direction: column;
+  }
+
+  .name-fields > * {
+    width: 100%;
+  }
 }

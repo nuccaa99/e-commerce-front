@@ -15,6 +15,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './features/auth/auth.interceptor';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
@@ -28,6 +29,7 @@ import { AuthInterceptor } from './features/auth/auth.interceptor';
     MatButtonModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

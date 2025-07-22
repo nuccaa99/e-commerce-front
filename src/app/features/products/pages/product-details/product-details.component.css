@@ -1,6 +1,7 @@
 .product-details-container {
   padding: 100px 80px;
   min-height: 100vh;
+  max-width: 100%;
   display: flex;
   align-items: flex-start;
   column-gap: 50px;
@@ -59,4 +60,31 @@
 .warning-snackbar {
   background: #ff9800;
   color: white;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.loading mat-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--dark-color);
+}
+
+@media screen and (max-width: 768px) {
+  .product-details-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+  }
+  .product-details-img {
+    padding: 0px;
+    width: 100%;
+    height: auto;
+  }
+  .product-details-description {
+    max-width: 100%;
+  }
 }
