@@ -1,18 +1,26 @@
 <div *ngIf="isLoading" class="loading-indicator">Loading products...</div>
-
 <div *ngIf="!isLoading && error" class="error">{{ error }}</div>
-
 <div
   *ngIf="!isLoading && basket.length > 0; else emptyBasket"
   class="basket-container"
 >
   <div class="basket-wrapper">
     <div *ngFor="let product of basketProducts" class="basket-item">
-      <img class="basket-img" [src]="product.imageData" [alt]="product.name" />
-      <div>
-        <h3>{{ product.name }}</h3>
-        <p>Price: {{ product.price | currency }}</p>
-        <p>Quantity: {{ product.quantity }}</p>
+      <!-- Make the product info clickable -->
+      <div class="product-info" (click)="navigateToProduct(product._id)">
+        <img
+          class="basket-img"
+          [src]="product.imageData"
+          [alt]="product.name"
+        />
+        <div class="product-details">
+          <h3>{{ product.name }}</h3>
+          <p>Price: {{ product.price | currency }}</p>
+          <p>Quantity: {{ product.quantity }}</p>
+        </div>
+      </div>
+      <!-- Keep the remove button separate from the clickable area -->
+      <div class="product-actions">
         <button
           class="remove-from-basket"
           (click)="removeFromBasket(product._id, 1)"

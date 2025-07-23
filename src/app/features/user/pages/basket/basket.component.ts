@@ -130,4 +130,9 @@ export class BasketComponent implements OnInit {
       this.isLoading = false;
     }
   }
+
+  navigateToProduct(productId: string): void {
+    console.log(productId);
+    this.router.navigate(['/products', productId]);
+  }
 }
